@@ -1,9 +1,7 @@
 
 const express = require("express");
 const bodyParser = require("body-parser");
-const request = require("request");
 const https = require("https");
-//const { url } = require("inspector");
 
 const app = express();
 
@@ -16,8 +14,8 @@ app.get("/", function (req, res) {
 
 app.post("/", function(req, res) {
   
-  const firstName = req.body.Fname;
-  const lastName = req.body.Lname;
+  const firstName = req.body.FName;
+  const lastName = req.body.LName;
   const email = req.body.email;
   //console.log(firstName, lastName, email);
 
@@ -54,7 +52,9 @@ app.post("/", function(req, res) {
 
   })
 
- 
+ app.post("/failure", function(req, res) {
+   res.redirect("/")
+ })
 
 app.listen(3000, function () {
   console.log("Server is listening on port 3000. Ready to accept requests!");
